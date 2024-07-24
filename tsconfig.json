@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "incremental": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sanity.config.js", "sanity.cli.js", "src/utils/index.js", "src/pages/studio/[[...index]].jsx", "src/pages/_app.jsx", "src/pages/[[...slug]].jsx", "src/schemas/blockContent.js", "src/schemas/index.ts", "src/schemas/post.js", "src/pages/post/[slug].jsx", "src/pages/api/disable-draft.js", "src/pages/api/draft.js", "src/lib/sanity.client.js", "src/lib/sanity.api.js"],
+  "exclude": ["node_modules"]
+}
