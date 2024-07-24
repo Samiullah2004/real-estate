@@ -116,7 +116,7 @@ export default function ContactForm({
           type="h3"
           otherClasses="font-Montserrat font-semibold text-button_black text-center mb-8"
         >
-          It's Time to Get WISE<span className="text-green-700">.</span>
+          Its Time to Get WISE<span className="text-green-700">.</span>
         </Heading>
         <div className="flex w-full  items-center rounded-full bg-gray-400/[0.4]  ">
           <button

@@ -1,9 +1,8 @@
 export const allModes = {
-    mobile: {
-      viewport: 'small',
-    },
-    desktop: {
-      viewport: 'large',
-    },
-  }
-  
+  mobile: {
+    viewport: 'small',
+  },
+  desktop: {
+    viewport: 'large',
+  },
+}

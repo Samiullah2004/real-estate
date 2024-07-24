@@ -7,9 +7,6 @@ export const SECTIONS = [
   },
 ]
 
-
-
-
 export const structureResolver: StructureResolver = (S) => {
   return S.list()
     .title('Content')
@@ -22,28 +19,23 @@ export const structureResolver: StructureResolver = (S) => {
             .items([
               S.documentTypeListItem('pages').title('Pages'),
               // S.documentTypeListItem('industryPages').title('Industry Pages'),
-              
             ]),
         ),
-        S.divider(),
-        S.listItem()
-          .title('Sections')
-          .child(
-            S.list()
-              .title('Sections')
-              .items(
-                SECTIONS.sort((a, b) =>
-                  a.sectionTitle.localeCompare(b.sectionTitle),
-                ).map((section) => {
-                  return S.listItem()
-                    .title(section.sectionTitle)
-                    .child(S.documentTypeList(section.sectionType))
-                }),
-              ),
-          ),
-  
-     
-  
-  
+      S.divider(),
+      S.listItem()
+        .title('Sections')
+        .child(
+          S.list()
+            .title('Sections')
+            .items(
+              SECTIONS.sort((a, b) =>
+                a.sectionTitle.localeCompare(b.sectionTitle),
+              ).map((section) => {
+                return S.listItem()
+                  .title(section.sectionTitle)
+                  .child(S.documentTypeList(section.sectionType))
+              }),
+            ),
+        ),
     ])
 }

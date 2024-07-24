@@ -1,11 +1,11 @@
-export const pages  ={
+export const pages = {
   title: 'Pages',
   name: 'pages',
   type: 'document',
   groups: [
-    {name: 'general', title: 'General'},
-    {name: 'content', title: 'Content', default: true},
-    {name: 'meta', title: 'Meta'},
+    { name: 'general', title: 'General' },
+    { name: 'content', title: 'Content', default: true },
+    { name: 'meta', title: 'Meta' },
   ],
   fields: [
     {
@@ -50,9 +50,9 @@ export const pages  ={
       type: 'string',
       options: {
         list: [
-          {title: 'Index', value: 'index'},
-          {title: 'No Index & Allowed', value: 'noIndex&Allowed'},
-          {title: 'No Index & Disallowed', value: 'noIndex&Disallowed'},
+          { title: 'Index', value: 'index' },
+          { title: 'No Index & Allowed', value: 'noIndex&Allowed' },
+          { title: 'No Index & Disallowed', value: 'noIndex&Disallowed' },
         ],
       },
       initialValue: 'index',
@@ -72,7 +72,7 @@ export const pages  ={
           options: {
             disableNew: true,
           },
-          to: [{type: 'genericTwoColumnSection'}],
+          to: [{ type: 'genericTwoColumnSection' }],
         },
       ],
     },
@@ -81,7 +81,7 @@ export const pages  ={
     select: {
       title: 'title',
     },
-    prepare({title = 'No title'}) {
+    prepare({ title = 'No title' }) {
       return {
         title,
       }

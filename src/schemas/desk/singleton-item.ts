@@ -11,13 +11,10 @@ export const singletonItem = (
   return S.listItem()
     .title(title)
     .child(
-      S.document()
-        .schemaType(type)
-        .documentId(type)
-        .views([
-          // Default form view
-          S.view.form(),
-          // Preview
-        ]),
+      S.document().schemaType(type).documentId(type).views([
+        // Default form view
+        S.view.form(),
+        // Preview
+      ]),
     )
 }

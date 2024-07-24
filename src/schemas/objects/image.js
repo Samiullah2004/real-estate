@@ -18,7 +18,7 @@ export const customImage = {
       title: 'title',
       media: 'image',
     },
-    prepare({title = 'No Title', media}) {
+    prepare({ title = 'No Title', media }) {
       return {
         title,
         media,

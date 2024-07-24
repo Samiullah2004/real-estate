@@ -1,7 +1,10 @@
 import { groq } from 'next-sanity'
+
+import ModuleRenderer, {
+  fragment as MODULE_FRAGMENT,
+} from '../components/module-renderer'
 import { readToken } from '../lib/sanity.api'
 import { getClient } from '../lib/sanity.client'
-import ModuleRenderer ,{fragment as MODULE_FRAGMENT} from '../components/module-renderer'
 
 export const getPageQuery = (slug) => groq`
   *[_type == "pages" && slug.current == '${slug}'] {
@@ -20,11 +23,13 @@ export const getPageQuery = (slug) => groq`
   }
 `
 function Page(props) {
-  const {page:{pageBuilder}} = props
+  const {
+    page: { pageBuilder },
+  } = props
   return (
     <>
-    hello
-     <ModuleRenderer modules={pageBuilder}/>
+      hello
+      <ModuleRenderer modules={pageBuilder} />
     </>
   )
 }

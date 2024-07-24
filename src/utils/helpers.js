@@ -70,6 +70,7 @@ export function useScrollEffect() {
         passive: true,
       })
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastScroll])
 
   return state

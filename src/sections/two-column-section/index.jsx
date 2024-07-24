@@ -1,13 +1,12 @@
 import clsx from 'clsx'
-import { BUTTON_FRAGMENT } from '../../components/button/Button'
-import NextImage, { NEXT_IMAGE_FRAGMENT } from '../../components/next-image/index'
 import { groq } from 'next-sanity'
 
-export const TwoColumnSection = ({
-  otherClasses,
-  desktopImage,
-  heading,
-}) => {
+import { BUTTON_FRAGMENT } from '../../components/button/Button'
+import NextImage, {
+  NEXT_IMAGE_FRAGMENT,
+} from '../../components/next-image/index'
+
+export const TwoColumnSection = ({ otherClasses, desktopImage, heading }) => {
   const twoColumnGenericSectionClasses = clsx(otherClasses)
 
   return (

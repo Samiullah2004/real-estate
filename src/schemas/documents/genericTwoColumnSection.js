@@ -1,4 +1,3 @@
-
 export const genericTwoColumnSection = {
   title: 'Generic Two Column Section',
   name: 'genericTwoColumnSection',
@@ -50,7 +49,6 @@ export const genericTwoColumnSection = {
       name: 'button',
       type: 'button',
     },
-
   ],
 
   preview: {

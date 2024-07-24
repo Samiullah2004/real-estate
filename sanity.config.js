@@ -31,7 +31,7 @@ const iframeOptions = {
   }),
   urlSecretId: previewSecretId,
   reload: { button: true },
-} 
+}
 
 export default defineConfig({
   basePath: '/studio',
@@ -62,7 +62,7 @@ export default defineConfig({
     //     ])
     //   },
     // }),
-    
+
     // Add the "Open preview" action
     previewUrl({
       base: '/api/draft',

@@ -1,6 +1,7 @@
 // eslint-disable-next-line simple-import-sort/imports
 
 import { groq } from 'next-sanity'
+
 import TwoColumnSection, {
   TWO_COLUMN_GENERIC_SECTION_FRAGMENT,
 } from '../sections/two-column-section'

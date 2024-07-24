@@ -11,26 +11,26 @@ export const bodyPortableText = {
       // you want and decide how you want to deal with it where you want to
       // use your content.
       styles: [
-        {title: 'H1', value: 'h1'},
-        {title: 'H2', value: 'h2'},
-        {title: 'H3', value: 'h3'},
-        {title: 'H4', value: 'h4'},
-        {title: 'H5', value: 'h5'},
-        {title: 'H6', value: 'h6'},
-        {title: 'Normal', value: 'normal'},
-        {title: 'Quote', value: 'blockquote'},
+        { title: 'H1', value: 'h1' },
+        { title: 'H2', value: 'h2' },
+        { title: 'H3', value: 'h3' },
+        { title: 'H4', value: 'h4' },
+        { title: 'H5', value: 'h5' },
+        { title: 'H6', value: 'h6' },
+        { title: 'Normal', value: 'normal' },
+        { title: 'Quote', value: 'blockquote' },
       ],
       lists: [
-        {title: 'Bullet', value: 'bullet'},
-        {title: 'Number', value: 'number'},
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Number', value: 'number' },
       ],
       // Marks let you mark up inline text in the block editor.
       marks: {
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Strong', value: 'strong'},
-          {title: 'Emphasis', value: 'em'},
+          { title: 'Strong', value: 'strong' },
+          { title: 'Emphasis', value: 'em' },
         ],
         // Annotations can be any object structure – e.g. a link or a footnote.
         annotations: [
@@ -65,7 +65,7 @@ export const bodyPortableText = {
                 type: 'string',
                 options: {
                   list: [
-                    {title: 'Contact Us', value: 'Contact Us'},
+                    { title: 'Contact Us', value: 'Contact Us' },
                     // {title: 'Subscribe form', value: 'Subcriber Email'},
                     // {title: 'Subscribe for Download', value: 'Subcriber Email Download Form'},
                   ],
@@ -91,6 +91,5 @@ export const bodyPortableText = {
     {
       type: 'button',
     },
-
   ],
 }

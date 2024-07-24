@@ -9,7 +9,6 @@ import useScrollRestoration from '../utils/useScrollRestoration'
 
 // const Layout = dynamic(() => import('../components/layout'))
 
-
 export default function App({ Component, pageProps, router }) {
   const {
     draftMode,
@@ -41,7 +40,6 @@ export default function App({ Component, pageProps, router }) {
   useScrollRestoration(router)
 
   return (
-   
     <Component
       {...pageProps}
       toggleFunc={toggleFunc}

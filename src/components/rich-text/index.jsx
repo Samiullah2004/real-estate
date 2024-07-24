@@ -30,10 +30,9 @@ const SampleImageComponent = ({ value, isInline, otherClasses }) => {
         position === 'left'
           ? 'mr-auto'
           : position === 'right'
-          ? 'ml-auto'
-          : 'mx-auto',
+            ? 'ml-auto'
+            : 'mx-auto',
       )}
-      
       src={builder.image(value).url()}
       alt={value.alt || ' '}
     />
@@ -48,7 +47,6 @@ export const RichText = ({ richText, otherClasses, toggleFunc }) => {
       <Button {...data} onClick={() => toggleFunc(data?.form, data?.tab)} />
     )
   }
-
 
   return (
     <div className={richTextClasses}>

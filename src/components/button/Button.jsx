@@ -4,7 +4,7 @@ import { groq } from 'next-sanity'
 
 import Icon from '~/components/icon/index'
 
-export const BUTTON_FRAGMENT =groq`
+export const BUTTON_FRAGMENT = groq`
    form,
    label,
    variant,
@@ -22,7 +22,7 @@ export default function Button({
   slug,
   onClick,
   externalLink,
-  action
+  action,
 }) {
   const buttonClasses = classnames(
     otherClasses,
@@ -41,7 +41,7 @@ export default function Button({
   const textLinkDark = variant === 'text-link-dark'
   const textLinkLight = variant === 'text-link-light'
   const tertiaryArrow = variant === 'tertiary'
-  if (action=='link' && slug) {
+  if (action == 'link' && slug) {
     const { current } = slug
     return (
       <Link
@@ -51,8 +51,8 @@ export default function Button({
           externalLink
             ? `${current}`
             : current?.startsWith('/')
-            ? `${current}`
-            : `/${current}`
+              ? `${current}`
+              : `/${current}`
         }
         target={externalLink ? '_blank' : '_self'}
         rel={externalLink ? 'noopener noreferrer' : ''}
