@@ -66,8 +66,6 @@ export const bodyPortableText = {
                 options: {
                   list: [
                     { title: 'Contact Us', value: 'Contact Us' },
-                    // {title: 'Subscribe form', value: 'Subcriber Email'},
-                    // {title: 'Subscribe for Download', value: 'Subcriber Email Download Form'},
                   ],
                 },
               },
@@ -76,14 +74,14 @@ export const bodyPortableText = {
         ],
       },
     },
-    // You can add additional types here. Note that you can't use
-    // primitive types such as 'string' and 'number' in the same array
-    // as a block type.
     {
       type: 'iframe',
     },
     {
-      type: 'image',
+      type: 'customImage',
+    },
+    {
+      type: 'blogImage',
     },
     {
       type: 'youtube',

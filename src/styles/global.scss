@@ -2,8 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-@import './slick-carousel.scss';
+@import './typography.scss';
 
-body {
-  background-color: gray;
+@import './slick-carousel.scss';
+@import '../sections/testimonial-section/testimonialsection.scss';
+ 
+// .border {
+//     border: none;
+//     background: linear-gradient(180deg, #ac93725b, #cf92c769);
+// }
+
+.border {
+    border: none;
+    background: linear-gradient(180deg, #0b4a6f96, #00000079);
+}
+
+.blue {
+    border: none;
+    background: linear-gradient(180deg, #0b4a6f, #0000004d);
+}
+.banner {
+    border: none;
+    background: linear-gradient(180deg, #00000083, #00000083);
+}
+  
+body{
+    background-color: #FEFAE0;
 }

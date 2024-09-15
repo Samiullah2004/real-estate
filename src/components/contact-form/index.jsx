@@ -1,4 +1,4 @@
-import './contact-form.scss'
+// import './contact-form.scss'
 
 import classnames from 'classnames'
 import Image from 'next/image'

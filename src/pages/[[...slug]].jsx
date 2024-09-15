@@ -28,7 +28,7 @@ function Page(props) {
   } = props
   return (
     <>
-      hello
+       
       <ModuleRenderer modules={pageBuilder} />
     </>
   )

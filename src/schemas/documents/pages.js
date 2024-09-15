@@ -65,6 +65,16 @@ export const pages = {
       group: 'content',
       of: [
         {
+          title: 'Home Hero Section',
+          name: 'homeHeroSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'homeHeroSection' }],
+        },
+        {
           title: 'Generic Two Column Section',
           name: 'genericTwoColumnSection',
           type: 'reference',
@@ -73,6 +83,56 @@ export const pages = {
             disableNew: true,
           },
           to: [{ type: 'genericTwoColumnSection' }],
+        },
+        {
+          title: 'Testimonial Section',
+          name: 'testimonialSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'testimonialSection' }],
+        },
+        {
+          title: 'WhyUs Section',
+          name: 'whyUsSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'whyUsSection' }],
+        },
+        {
+          title: 'Cta Section',
+          name: 'ctaSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'ctaSection' }],
+        },
+        {
+          title: 'Blog Hub Section',
+          name: 'blogHubSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'blogHubSection' }],
+        },
+        {
+          title: 'Featured Blog Section',
+          name: 'featuredBlogSection',
+          type: 'reference',
+          validation: (Rule) => Rule.required(),
+          options: {
+            disableNew: true,
+          },
+          to: [{ type: 'featuredBlogSection' }],
         },
       ],
     },

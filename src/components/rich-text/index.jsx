@@ -1,5 +1,4 @@
-import './Rich-text.scss'
-
+ 
 import { PortableText } from '@portabletext/react'
 import { getImageDimensions } from '@sanity/asset-utils'
 import ImageUrlBuilder from '@sanity/image-url'

@@ -1,0 +1,39 @@
+.testimonial-slick-slider {
+    .slick-dots {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0px 0;
+      list-style-type: none;
+      bottom: -48px;
+  
+      li {
+        width: fit-content !important;
+        height: fit-content !important;
+      }
+  
+      button {
+        transition: 0.3s;
+        display: block;
+        width: 8px !important;
+        height: 8px !important;
+        padding: 0;
+        border: none;
+        border-radius: 100%;
+        background-color: #8fcdee !important;
+        position: relative !important;
+  
+        &::before {
+          display: none;
+        }
+      }
+  
+      li.slick-active button {
+        transition: 0.3s;
+  
+        background-color: #008ed5 !important;
+        border-radius: 4px;
+      }
+    }
+  }
+  

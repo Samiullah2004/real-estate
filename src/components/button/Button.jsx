@@ -2,7 +2,8 @@ import classnames from 'classnames'
 import Link from 'next/link'
 import { groq } from 'next-sanity'
 
-import Icon from '~/components/icon/index'
+import NextImage, { NEXT_IMAGE_FRAGMENT } from '../next-image'
+import { useState } from 'react'
 
 export const BUTTON_FRAGMENT = groq`
    form,
@@ -12,40 +13,58 @@ export const BUTTON_FRAGMENT = groq`
    action,
    slug,
    form,
+   size,
+   iconRight,
+   withIcon,
+   iconImageHover,
+   iconImage{${NEXT_IMAGE_FRAGMENT}}
 `
 
 export default function Button({
   label = '',
   variant = 'primary',
   otherClasses,
+  size = 'large',
   form,
+  iconRight = false,
   slug,
   onClick,
   externalLink,
   action,
+  withIcon,
+  iconImage,
+  iconImageHover,
+  ariaLabel,
 }) {
   const buttonClasses = classnames(
     otherClasses,
+    'group',
+    iconRight ? 'flex-row-reverse' : 'flex-row',
     variant === 'primary' &&
-      `px-6 py-4 rounded-full font-Lato bg-green-600 text-sm leading-4 font-semibold text-white relative overflow-hidden group`,
+      `bg-primary-blue-600  bg-primary-blue-400 text-white rounded font-semibold cursor-pointer hover:bg-primary-blue-900 transition-all duration-300 flex items-center gap-2`,
     variant === 'secondary' &&
-      `px-6 py-4 rounded-full font-Lato bg-transparent text-sm  leading-4 font-semibold border border-white text-white relative overflow-hidden group`,
-    variant === 'text-link-dark' &&
-      `p-4 rounded-full flex font-Lato items-center gap-5 leading-4 text-sm text-button_black relative after:block after:absolute after:left-0 after:top-2/4 after:-translate-y-2/4 after:w-12 after:h-12 after:rounded-full after:bg-green-600/[0.20] hover:after:w-full after:transition-all after:duration-300`,
-    variant === 'text-link-light' &&
-      `p-4 rounded-full flex items-center gap-5 leading-4 font-Lato text-sm text-white relative after:block after:absolute after:left-0 after:top-2/4 after:-translate-y-2/4 after:w-12 after:h-12 after:rounded-full  after:bg-white/[0.20] hover:after:w-full after:transition-all after:duration-300`,
+      `border-primary-blue-600 border bg-transparent text-primary-blue-600 rounded font-semibold hover:bg-primary-blue-600 hover:text-white cursor-pointer transition-all duration-300 flex items-center gap-2`,
     variant === 'tertiary' &&
-      `text-green-600 font-Lato text-sm leading-4 font-semibold  not-italic uppercase tracking-[1px]  flex justify-center items-center gap-2 hover:gap-3 transition-all ease-in-out`,
+      `bg-white text-primary-blue-600 rounded font-semibold hover:bg-primary-blue-100 cursor-pointer transition-all duration-300 flex items-center gap-2`,
+    variant === 'text-link' &&
+      `bg-transparent text-primary-blue-600 font-semibold cursor-pointer hover:text-primary-blue-900 transition-all duration-300 flex items-center gap-2`,
+    (variant === 'primary' ||
+      variant === 'secondary' ||
+      variant === 'tertiary') &&
+      size === 'large'
+      ? 'py-4 px-6 text-base'
+      : size === 'medium'
+        ? 'px-6 py-3 text-base'
+        : size === 'small'
+          ? 'py-[10px] px-6 text-sm'
+          : size === 'x-small' && 'py-[6px] px-4 text-sm',
   )
-  const primary = variant === 'primary' || variant === 'secondary'
-  const textLinkDark = variant === 'text-link-dark'
-  const textLinkLight = variant === 'text-link-light'
-  const tertiaryArrow = variant === 'tertiary'
+
   if (action == 'link' && slug) {
     const { current } = slug
     return (
       <Link
-        aria-label={label}
+        aria-label={ariaLabel ? ariaLabel : label}
         className={classnames(buttonClasses, 'block')}
         href={
           externalLink
@@ -54,48 +73,31 @@ export default function Button({
               ? `${current}`
               : `/${current}`
         }
-        target={externalLink ? '_blank' : '_self'}
+        target={
+          externalLink
+            ? current?.startsWith('tel:')
+              ? '_self'
+              : '_blank'
+            : '_self'
+        }
         rel={externalLink ? 'noopener noreferrer' : ''}
       >
-        {primary ? (
-          <>
-            <span className="relative block transition-all duration-200 ease-in group-hover:translate-y-[-40px] group-hover:scale-110 group-hover:opacity-0 ">
-              {label}
-            </span>
-            <span className="absolute left-2/4 -translate-x-2/4 translate-y-[30px] whitespace-nowrap opacity-0 transition-all duration-200 ease-in group-hover:translate-y-[-17px] group-hover:opacity-100">
-              {label}
-            </span>
-          </>
-        ) : (
-          <>
-            {textLinkDark ? (
-              <>
-                {label}
-                <Icon icon="black-plus" iconHeight={13} iconWidth={13} />
-              </>
-            ) : (
-              <>
-                {textLinkLight ? (
-                  <>
-                    {label}
-                    <Icon icon="white-plus" iconHeight={13} iconWidth={13} />
-                  </>
-                ) : (
-                  <>
-                    {label}
-                    {tertiaryArrow && (
-                      <Icon
-                        icon="tertiary-icon"
-                        iconHeight={14}
-                        iconWidth={16}
-                      />
-                    )}{' '}
-                  </>
-                )}
-              </>
+        {withIcon && (
+          <NextImage
+            {...iconImage}
+            otherClasses={classnames(
+              'max-w-5 max-h-5 ',
+              iconImageHover ? 'group-hover:hidden block' : '',
             )}
-          </>
+          />
         )}
+        {iconImageHover && withIcon && (
+          <NextImage
+            {...iconImageHover}
+            otherClasses="max-w-5 max-h-5 group-hover:block  hidden"
+          />
+        )}
+        {label}
       </Link>
     )
   }
@@ -111,49 +113,20 @@ export default function Button({
       className={buttonClasses}
       data-testid="button"
     >
-      {primary ? (
-        <>
-          <span className="relative block transition-all duration-200 ease-in group-hover:translate-y-[-40px] group-hover:scale-110 group-hover:opacity-0 ">
-            {label}
-          </span>
-          <span className="absolute left-2/4 -translate-x-2/4 translate-y-[30px] whitespace-nowrap opacity-0 transition-all duration-200 ease-in group-hover:translate-y-[-17px] group-hover:opacity-100">
-            {label}
-          </span>
-        </>
-      ) : (
-        <>
-          {textLinkDark ? (
-            <>
-              {label}
-              <Icon icon="black-plus" iconHeight={13} iconWidth={13} />
-            </>
-          ) : (
-            <>
-              {textLinkLight ? (
-                <>
-                  {label}
-                  <Icon icon="white-plus" iconHeight={13} iconWidth={13} />
-                </>
-              ) : (
-                <>
-                  {tertiaryArrow ? (
-                    <>
-                      {label}
-                      <Icon
-                        icon="tertiary-icon"
-                        iconHeight={14}
-                        iconWidth={16}
-                      />
-                    </>
-                  ) : (
-                    <>{label}</>
-                  )}
-                </>
-              )}
-            </>
-          )}
-        </>
+      {withIcon && (
+        <NextImage
+          {...iconImage}
+          otherClasses="max-w-5 max-h-5 group-hover:hidden  block"
+        />
       )}
+      {withIcon && (
+        <NextImage
+          {...iconImageHover}
+          otherClasses="max-w-5 max-h-5 group-hover:block  hidden"
+        />
+      )}
+
+      {label}
     </button>
   )
 }

@@ -16,7 +16,7 @@ export const customImage = {
   preview: {
     select: {
       title: 'title',
-      media: 'image',
+      media: 'asset', // Reference the image asset correctly
     },
     prepare({ title = 'No Title', media }) {
       return {

@@ -16,15 +16,49 @@ export const button = {
         list: [
           { title: 'Primary', value: 'primary' },
           { title: 'Secondary', value: 'secondary' },
+          { title: 'Tertiary', value: 'tertiary' },
+          { title: 'Text Link', value: 'text-link' },
         ],
       },
     },
     {
-      title: 'External Link',
-      name: 'externalLink',
+      title: 'Size',
+      name: 'size',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Large', value: 'large' },
+          { title: 'Medium', value: 'medium' },
+          { title: 'Small', value: 'small' },
+          { title: 'X-Small', value: 'x-small' },
+        ],
+      },
+      hidden: ({ parent }) => parent?.variant === 'text-link',
+    },
+    {
+      title: 'With Icon',
+      name: 'withIcon',
       type: 'boolean',
       initialValue: false,
-      hidden: ({ parent }) => !parent?.action || parent?.action === 'form',
+    },
+    {
+      title: 'Icon Image',
+      name: 'iconImage',
+      type: 'customImage',
+      hidden: ({ parent }) => parent?.withIcon !== true,
+    },
+    {
+      title: 'Icon Image Hover',
+      name: 'iconImageHover',
+      type: 'customImage',
+      hidden: ({ parent }) => parent?.withIcon !== true,
+    },
+    {
+      title: 'Icon Right',
+      name: 'iconRight',
+      type: 'boolean',
+      initialValue: false,
+      hidden: ({ parent }) => parent?.withIcon !== true,
     },
     {
       title: 'Action',
@@ -33,6 +67,13 @@ export const button = {
       options: {
         list: ['link', 'form'],
       },
+    },
+    {
+      title: 'External Link',
+      name: 'externalLink',
+      type: 'boolean',
+      initialValue: false,
+      hidden: ({ parent }) => !parent?.action || parent?.action === 'form',
     },
     {
       title: 'Link',
